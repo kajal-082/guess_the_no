@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .canvas{
+      border: 1px solid #000;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+  <title>Guess the Number Game</title>
+</head>
+<body style = "background-color:pink">
+  <h2><b><i>NAME - KAJAL SINGH <br> CBID-CB23106<br>WEEK 3 -JAVASCRIPT</i></b></h2>
+  <h1><i>Guess the Number Game</i></h1>
+  <p><i><h2>Guess a number between 0 and 100:</h2></i></p>
+  <input type="number" id="Input" min="0" max="100">
+  <button onclick="checkGuess()">Submit Guess</button>
+  <p id="message"></p>
+
+  <script>
+    const secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const userGuess = document.getElementById('Input').value;
+      attempts++;
+      if (userGuess == secretNumber) {
+        document.getElementById('message').innerHTML = `Congratulations! You guessed the number ${secretNumber} in ${attempts} attempts.`;
+      } else if (userGuess < secretNumber) {
+        document.getElementById('message').innerHTML = 'Too low. Try again.';
+      } else {
+        document.getElementById('message').innerHTML = 'Too high. Try again.';
+      }
+    }
+  </script>
+</body>
+</html>
